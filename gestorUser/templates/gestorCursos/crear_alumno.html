@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Registrar Alumno{% endblock %}
+
+{% block content %}
+
+<div class="card shadow">
+    <div class="card-header">
+        <h4 class="m-0">
+            <i class="fa fa-user-plus"></i> Registrar Alumno
+        </h4>
+    </div>
+
+    <div class="card-body">
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" name="nombre" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Apellido</label>
+                <input type="text" class="form-control" name="apellido" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">RUT</label>
+                <input type="text" class="form-control" name="rut" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Curso</label>
+                <select name="curso" class="form-select" required>
+                    <option value="">Seleccione un curso</option>
+                    {% for c in cursos %}
+                        <option value="{{ c.id }}">{{ c.nombre }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button class="btn btn-success">
+                <i class="fa fa-check"></i> Guardar
+            </button>
+
+            <a href="{% url 'listar_alumnos' %}" class="btn btn-secondary">
+                <i class="fa fa-arrow-left"></i> Volver
+            </a>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

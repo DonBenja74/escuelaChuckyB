@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Panel Administrador{% endblock %}
+
+{% block content %}
+
+<div class="card shadow">
+    <div class="card-body">
+
+        <h3 class="fw-bold mb-3">
+            <i class="fa-solid fa-user-shield"></i> Panel del Administrador
+        </h3>
+
+        <p class="text-muted">
+            Bienvenido al centro de mando. Aquí puedes controlar cursos, alumnos y revisar la actividad del sistema.
+        </p>
+
+        <div class="row mt-4">
+
+            <!-- Gestión de Cursos -->
+            <div class="col-md-4">
+                <a href="{% url 'listar_cursos' %}" class="text-decoration-none">
+                    <div class="small-box bg-primary shadow-sm">
+                        <div class="inner">
+                            <h4>Gestionar Cursos</h4>
+                            <p>Crear, editar o eliminar cursos</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Gestión de Alumnos -->
+            <div class="col-md-4">
+                <a href="{% url 'listar_alumnos' %}" class="text-decoration-none">
+                    <div class="small-box bg-success shadow-sm">
+                        <div class="inner">
+                            <h4>Gestionar Alumnos</h4>
+                            <p>Listado completo del alumnado</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

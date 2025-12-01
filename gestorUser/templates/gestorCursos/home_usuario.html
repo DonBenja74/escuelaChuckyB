@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Panel Usuario{% endblock %}
+
+{% block content %}
+
+<div class="card shadow">
+    <div class="card-body">
+
+        <h3 class="fw-bold mb-3">
+            <i class="fa-solid fa-user"></i> Panel del Usuario
+        </h3>
+
+        <p class="text-muted">
+            Bienvenido. Desde aquí puedes administrar solo tus alumnos y visualizar información básica.
+        </p>
+
+        <div class="row mt-4">
+
+            <!-- Ver mis alumnos -->
+            <div class="col-md-4">
+                <a href="{% url 'listar_cursos' %}" class="text-decoration-none">
+                    <div class="small-box bg-info shadow-sm">
+                        <div class="inner">
+                            <h4>Mis Alumnos</h4>
+                            <p>Consultar y administrar a tus propios alumnos</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Vista de cursos (solo informativa) -->
+            <div class="col-md-4">
+                <a href="{% url 'listar_cursos' %}" class="text-decoration-none">
+                    <div class="small-box bg-warning shadow-sm">
+                        <div class="inner">
+                            <h4>Ver Cursos</h4>
+                            <p>Revisar la oferta de cursos disponible</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

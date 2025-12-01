@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Panel Administrador{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="text-center mb-4">
+        <h1 class="fw-bold">Panel del Administrador</h1>
+        <p class="text-muted">Gestión completa del sistema</p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <a href="{% url 'listar_cursos' %}" class="text-decoration-none">
+                <div class="card shadow-sm p-3 text-center">
+                    <h4 class="fw-bold">📚 Cursos</h4>
+                    <p class="text-muted">Crear, editar y eliminar cursos</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="{% url 'listar_alumnos' %}" class="text-decoration-none">
+                <div class="card shadow-sm p-3 text-center">
+                    <h4 class="fw-bold">👨‍🎓 Alumnos</h4>
+                    <p class="text-muted">Gestionar alumnos del sistema</p>
+                </div>
+            </a>
+        </div>
+</div>
+{% endblock %}

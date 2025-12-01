@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Crear Curso{% endblock %}
+
+{% block content %}
+
+<div class="card shadow-sm">
+    <div class="card-body">
+
+        <h3 class="fw-bold mb-3">
+            <i class="fa-solid fa-book-medical"></i> Crear Curso
+        </h3>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label">Código</label>
+                <input type="text" name="codigo" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input type="text" name="nombre" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Descripción</label>
+                <textarea name="descripcion" class="form-control" required></textarea>
+            </div>
+
+            <button class="btn btn-success">Guardar</button>
+            <a href="{% url 'listar_cursos' %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
