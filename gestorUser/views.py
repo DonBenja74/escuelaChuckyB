@@ -5,9 +5,8 @@ from django.contrib.auth.models import User
 from .models import Perfil
 
 
-# ------------------------------------
+
 # LOGIN
-# ------------------------------------
 def login_view(request):
     if request.method == "POST":
         username = request.POST.get("username")
@@ -31,17 +30,15 @@ def login_view(request):
     return render(request, "gestorUser/login.html")
 
 
-# ------------------------------------
+
 # LOGOUT
-# ------------------------------------
 def logout_view(request):
     logout(request)
     return redirect("login")
 
 
-# ------------------------------------
+
 # REGISTRO
-# ------------------------------------
 def registro_view(request):
     if request.method == "POST":
         username = request.POST.get("username")
@@ -59,9 +56,8 @@ def registro_view(request):
     return render(request, "gestorUser/registro.html")
 
 
-# ------------------------------------
+
 # PANEL ADMIN
-# ------------------------------------
 @login_required
 def panel_admin(request):
     perfil = Perfil.objects.get(user=request.user)

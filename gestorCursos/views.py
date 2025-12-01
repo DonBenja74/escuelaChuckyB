@@ -4,9 +4,7 @@ from gestorUser.models import Perfil
 from django.contrib.auth.decorators import login_required
 
 
-# ------------------------------------
 # HOME CURSOS (redirige según rol)
-# ------------------------------------
 @login_required
 def home_cursos(request):
     perfil = Perfil.objects.get(user=request.user)
@@ -17,10 +15,8 @@ def home_cursos(request):
         return render(request, "gestorCursos/home_usuario.html")
 
 
-# ------------------------------------
+
 # LISTAR CURSOS (solo admin)
-# ------------------------------------
-# Admin ve todos – Usuario normal también ve todos (solo lectura)
 @login_required
 def listar_cursos(request):
     cursos = Curso.objects.all()
@@ -31,9 +27,7 @@ def listar_cursos(request):
         "es_admin": perfil.rol == "admin"
     })
 
-# ------------------------------------
 # CREAR CURSO (solo admin)
-# ------------------------------------
 @login_required
 def crear_curso(request):
     perfil = Perfil.objects.get(user=request.user)
@@ -58,10 +52,7 @@ def crear_curso(request):
         "es_admin": True
     })
 
-
-# ------------------------------------
 # EDITAR CURSO (solo admin)
-# ------------------------------------
 @login_required
 def editar_curso(request, id):
     perfil = Perfil.objects.get(user=request.user)
@@ -85,9 +76,8 @@ def editar_curso(request, id):
     })
 
 
-# ------------------------------------
+
 # ELIMINAR CURSO (solo admin)
-# ------------------------------------
 @login_required
 def eliminar_curso(request, id):
     perfil = Perfil.objects.get(user=request.user)
@@ -99,11 +89,7 @@ def eliminar_curso(request, id):
     return redirect("listar_cursos")
 
 
-# ------------------------------------
 # LISTAR ALUMNOS
-# admin = ve todos
-# usuario normal = ve solo los suyos
-# ------------------------------------
 @login_required
 def listar_alumnos(request):
     perfil = Perfil.objects.get(user=request.user)
@@ -118,12 +104,7 @@ def listar_alumnos(request):
     })
 
 
-
-# ------------------------------------
 # CREAR ALUMNO
-# admin = crea cualquiera
-# usuario = también crea alumnos
-# ------------------------------------
 @login_required
 def crear_alumno(request):
     perfil = Perfil.objects.get(user=request.user)
@@ -151,11 +132,8 @@ def crear_alumno(request):
     })
 
 
-# ------------------------------------
+
 # EDITAR ALUMNO
-# admin = puede editar todos
-# usuario = solo los que creó
-# ------------------------------------
 @login_required
 def editar_alumno(request, id):
     alumno = Alumno.objects.get(id=id)
@@ -182,11 +160,8 @@ def editar_alumno(request, id):
     })
 
 
-# ------------------------------------
+
 # ELIMINAR ALUMNO
-# admin = elimina cualquiera
-# usuario = NO puede eliminar
-# ------------------------------------
 @login_required
 def eliminar_alumno(request, id):
     perfil = Perfil.objects.get(user=request.user)
