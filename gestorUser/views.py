@@ -68,9 +68,7 @@ def panel_admin(request):
     return render(request, "gestorUser/panel_admin.html")
 
 
-# ------------------------------------
 # PANEL USUARIO
-# ------------------------------------
 @login_required
 def panel_usuario(request):
     perfil = Perfil.objects.get(user=request.user)
